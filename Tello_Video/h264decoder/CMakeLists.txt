@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 project(python_h264decoder)
 
 set(Python_ADDITIONAL_VERSIONS 2.7)
+set(Python_ADDITIONAL_VERSIONS 3.8)
 
 if(UNIX AND NOT APPLE)
         set(LINUX TRUE)
@@ -9,15 +10,15 @@ endif()
 
 if(APPLE)
 	set(CMAKE_SHARED_LIBRARY_SUFFIX ".so")
-	find_package(Boost REQUIRED COMPONENTS python27)
+	find_package(Boost REQUIRED COMPONENTS python38)
 elseif(LINUX)
 	find_package(Boost REQUIRED COMPONENTS "python")
 endif(APPLE)
 
 
 
-find_package(PythonInterp 2.7 REQUIRED)
-find_package(PythonLibs 2.7 REQUIRED )
+find_package(PythonInterp 3.8 REQUIRED)
+find_package(PythonLibs 3.8 REQUIRED )
 
 
 include_directories(${PYTHON_INCLUDE_DIRS})
